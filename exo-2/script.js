@@ -1,6 +1,6 @@
 // you can write js here
 console.log('exo-2');
-let myDate;
+let myDate ;
 
 let isTesting = true;
 
@@ -8,7 +8,7 @@ let isTesting = true;
 
 if(isTesting == true){
     
-    myDate = new Date(prompt("entrez une date"))
+    myDate = new Date(prompt("entrez une date (au format AAAA-mm-JJThh:mm:ss)"))
 
 }else{
     myDate = new Date();
