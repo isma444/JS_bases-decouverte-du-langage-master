@@ -73,11 +73,25 @@ let team = {
 
     oldestPlayer(){
         
-        this.players.forEach(element => {
-            
-        });
+        this.players.sort(function (a, b){
+            return b.age - a.age;
+        })
+        return this.players[0];
+       
+    },
+
+    sortPlayers(){
+
+        this.players.sort(function (a, b){
+            if(a.firstName < b.firstName){
+                return -1;
+            }
+            if(a.firstName > b.firstName){
+                return 1;
+            }
+        })
+        return this.players;
+        
     }
 }
 
-
-console.log(team)
