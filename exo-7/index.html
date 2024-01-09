@@ -1,16 +1,62 @@
 <!doctype html>
 <html lang="fr">
 
-  <head>
-    <meta charset="utf-8">
-  </head>
+<head>
+  <meta charset="utf-8">
+</head>
 
-  <body>
-    <div class="container">
-						<h1>Exercice 7</h1>
-				</div>
-    <script src="datas.js"></script>
-    <script src="exo7.js"></script>
-  </body>
+<body>
+
+  <div class="container">
+    <h1>Exercice 7</h1>
+
+    <input type="text" class="search">
+    <button>ok</button>
+    <label for=""> en stock 
+      <input name="stock" type="checkbox">
+    </label>
+    <label for="">trier par :
+      <select name="sort" >
+        <option value="name">Name</option>
+        <option value="price">Prix</option>
+      </select>
+    </label>
+    <label for="">sens de tri :
+      <select name="sens" >
+        <option value="name">ASC</option>
+        <option value="price">DESC</option>
+      </select>
+    </label>
+    
+  
+
+    <div id="articles" style="display: flex;"></div>
+
+  </div>
+
+
+  <form action="">
+    <label for="">Name
+      <input name="name" type="text">
+    </label>
+    <label for="">Type
+      <input name="type" type="text">
+    </label>
+    <label for="">Description
+      <textarea name="description"  cols="30" rows="10"></textarea>
+    </label>
+    <label for="">Price
+      <input name="price" type="text">
+    </label>
+    <label for="">Quantity
+      <input name="price" type="text">
+    </label>
+    <button>Ajouter</button>
+  </form>
+
+
+  <script src="datas.js"></script>
+  <script src="exo7.js"></script>
+</body>
 
 </html>

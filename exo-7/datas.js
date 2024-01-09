@@ -32,7 +32,7 @@ var jsonDatas=[
 	},{
 		"name" :"Monopoly",
 		"type" : "game",
-		"description" : "",
+		"description" : " ",
 		"price" : 30,
 		"quantity" : 300
 	},{
