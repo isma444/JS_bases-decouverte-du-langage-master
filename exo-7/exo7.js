@@ -4,26 +4,32 @@ console.log(jsonDatas);
 
 document.addEventListener("DOMContentLoaded", function () {
     showList();
-    document.querySelector("button").addEventListener("click", showList);
+    document.querySelector("[name=sortArticle]").addEventListener("click", showList);
     document.querySelector("[name=stock]").addEventListener("change", showList);
-    document.querySelector("[name=sort]").addEventListener("change" , showList);
+    document.querySelector("[name=sort]").addEventListener("change", showList);
     document.querySelector("[name=sens]").addEventListener("change", showList);
+    document.querySelector("[name=addArticle]").addEventListener("click", function (e) {
+        e.preventDefault();
+        addArticle();
+    });
 })
 
-let type =
-{
-    house: "maison",
-    game: "jeu",
-    videoGame: "jeux videos",
-    car: "voiture",
-    show: "entré",
+function translateType(data) {
+    let type =
+    {
+        house: "maison",
+        game: "jeu",
+        videoGame: "jeux videos",
+        car: "voiture",
+        show: "entré",
+    }
+
+    data.forEach(element => {
+
+        element[element.type] = type[element.type]
+    });
+    return data;
 }
-
-jsonDatas.forEach(element => {
-
-    element[element.type] = type[element.type]
-});
-
 console.log(jsonDatas)
 
 function showList() {
@@ -42,6 +48,7 @@ function filterData() {
         tabArticle = isStock(tabArticle)
     }
     sortData(tabArticle);
+    tabArticle = translateType(tabArticle)
     return tabArticle
 }
 
@@ -112,25 +119,25 @@ function sortData(tabData) {
     if (tri == "name") {
         tabData.sort(function (a, b) {
             if (a.name < b.name) {
-                if(sens == "asc"){
+                if (sens == "asc") {
                     return -1;
-                } else if(sens == "desc"){
+                } else if (sens == "desc") {
                     return 1;
-                }  
+                }
             }
             if (a.name > b.name) {
-                if(sens == "asc"){
+                if (sens == "asc") {
                     return 1;
-                } else if(sens == "desc"){
+                } else if (sens == "desc") {
                     return -1;
-                } 
+                }
             }
         })
-    }else if(tri == "price"){
-        tabData.sort(function (a, b){
-            if(sens == "asc"){
+    } else if (tri == "price") {
+        tabData.sort(function (a, b) {
+            if (sens == "asc") {
                 return a.price - b.price;
-            }else if(sens == "desc"){
+            } else if (sens == "desc") {
                 return b.price - a.price;
             }
         })
@@ -139,4 +146,14 @@ function sortData(tabData) {
 
 function addArticle() {
 
+    tabProperty = ["name", "type", "description", "price", "quantity"];
+    let newArticle = {};
+
+    for (property of tabProperty) {
+        let propertyValue = document.querySelector("[name=" + property + "]").value;
+        newArticle[property] = propertyValue;
+        document.querySelector("[name=" + property + "]").value = "";
+    }
+    jsonDatas.push(newArticle);
+    showList();
 }
