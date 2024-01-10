@@ -6,9 +6,9 @@ let letters = input.split("");
 let vowels =  ["a", "e", "i", "o", "u", "y"];
 let resultArray = [];
 
-// letters.forEach(elmt=> {
-//     if(vowels.indexOf(elmt) >= 0){
-//         resultArray.push(elmt)
+// letters.forEach(elmt=> { // pour chaque element de letters
+//     if(vowels.indexOf(elmt) >= 0){ // si l'index de l'element rechercher et isuperieur ou egal a 0 , indexOf retourn -1 sipas trouver
+//         resultArray.push(elmt) //on ajoute a resultArray
 //     } 
     
 // });

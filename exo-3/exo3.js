@@ -20,8 +20,8 @@ function getPlayerChoice(playerInput) {
 function getComputerChoice() {
 
     let choices = ["rock", "paper", "scissors"];
-    let random = Math.floor(Math.random() * (3 - 0) + 0);
-
+    let random = Math.floor(Math.random() * 3 );
+    console.log(choices[random]);
     return choices[random];
 
 }

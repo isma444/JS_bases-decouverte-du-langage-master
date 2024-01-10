@@ -25,10 +25,9 @@ if(day == 0 || day == 6 ){
 
 }else if(day == 1 && hour < 9){
 
-    console.log('yo');
     message = messageWeekend;
 
-}else if(day == 5 && hour <= 17){
+}else if(day == 5 && hour >= 17){
 
     message = messageWeekend;
 

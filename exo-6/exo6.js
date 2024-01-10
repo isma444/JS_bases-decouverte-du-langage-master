@@ -74,7 +74,7 @@ let team = {
     oldestPlayer(){
         
         this.players.sort(function (a, b){
-            return b.age - a.age;
+            return b.age - a.age; // si le retour est negatif b aura un indice inférieur a b
         })
         return this.players[0];
        
