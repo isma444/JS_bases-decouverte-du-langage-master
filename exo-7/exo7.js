@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("button").addEventListener("click", showList);
     document.querySelector("[name=stock]").addEventListener("change", showList);
     document.querySelector("[name=sort]").addEventListener("change" , showList);
-    
+    document.querySelector("[name=sens]").addEventListener("change", showList);
 })
 
 let type =
@@ -107,19 +107,32 @@ function isStock(tab) {
 
 function sortData(tabData) {
     let tri = document.querySelector("[name=sort]").value;
+    let sens = document.querySelector("[name=sens]").value;
 
     if (tri == "name") {
         tabData.sort(function (a, b) {
             if (a.name < b.name) {
-                return -1;
+                if(sens == "asc"){
+                    return -1;
+                } else if(sens == "desc"){
+                    return 1;
+                }  
             }
             if (a.name > b.name) {
-                return 1;
+                if(sens == "asc"){
+                    return 1;
+                } else if(sens == "desc"){
+                    return -1;
+                } 
             }
         })
     }else if(tri == "price"){
         tabData.sort(function (a, b){
-            return a.price - b.price;
+            if(sens == "asc"){
+                return a.price - b.price;
+            }else if(sens == "desc"){
+                return b.price - a.price;
+            }
         })
     }
 }
